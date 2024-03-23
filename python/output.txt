@@ -1,0 +1,48 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.4, pytest-8.1.1, pluggy-1.4.0
+rootdir: /home/sir-sang/Documents/ostribot/python
+plugins: asyncio-0.23.6
+asyncio: mode=Mode.STRICT
+collected 8 items
+
+obot/test_obot.py ........                                               [100%]
+
+=============================== warnings summary ===============================
+obot/test_obot.py::TestQueryContactList::test_query_contact_list
+  /usr/lib/python3.11/unittest/case.py:579: RuntimeWarning: coroutine 'TestQueryContactList.test_query_contact_list' was never awaited
+    if method() is not None:
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+obot/test_obot.py::TestQueryContactList::test_query_contact_list
+  /usr/lib/python3.11/unittest/case.py:678: DeprecationWarning: It is deprecated to return a value that is not None from a test case (<bound method TestQueryContactList.test_query_contact_list of <test_obot.TestQueryContactList testMethod=test_query_contact_list>>)
+    return self.run(*args, **kwds)
+
+obot/test_obot.py::test_main_subscription
+  /home/sir-sang/Documents/ostribot/python/obot/test_obot.py:102: RuntimeWarning: coroutine 'main' was never awaited
+    main(mock_get_args())
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+obot/test_obot.py::TestMainFunction::test_main
+  /usr/lib/python3.11/unittest/case.py:579: RuntimeWarning: coroutine 'TestMainFunction.test_main' was never awaited
+    if method() is not None:
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+obot/test_obot.py::TestMainFunction::test_main
+  /usr/lib/python3.11/unittest/case.py:678: DeprecationWarning: It is deprecated to return a value that is not None from a test case (<bound method TestMainFunction.test_main of <test_obot.TestMainFunction testMethod=test_main>>)
+    return self.run(*args, **kwds)
+
+obot/test_obot.py::TestMainFunction::test_main_with_contact_list
+  /usr/lib/python3.11/unittest/case.py:579: RuntimeWarning: coroutine 'TestMainFunction.test_main_with_contact_list' was never awaited
+    if method() is not None:
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+obot/test_obot.py::TestMainFunction::test_main_with_contact_list
+  /usr/lib/python3.11/unittest/case.py:678: DeprecationWarning: It is deprecated to return a value that is not None from a test case (<bound method TestMainFunction.test_main_with_contact_list of <test_obot.TestMainFunction testMethod=test_main_with_contact_list>>)
+    return self.run(*args, **kwds)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 8 passed, 7 warnings in 0.23s =========================
