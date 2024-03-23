@@ -5,7 +5,8 @@ from obot import *
 import unittest
 from obot import BotEventHandler, encrypt_text, query_contact_list, main
 
-# Test encrypt_text function
+#****************************************Test encrypt_text function***********************************#
+
 @pytest.mark.parametrize("plain_text, to_pub_k, expected_result", [
     ("Test message", "public_key", "ZW5jcnlwdGVkX3RleHQ=?iv=aXZfZGF0YQ=="),   
 ])
@@ -14,7 +15,8 @@ def test_encrypt_text(plain_text, to_pub_k, expected_result):
     encryptor_mock.encrypt_message.return_value = {'text': b'encrypted_text', 'iv': b'iv_data'}
     assert encrypt_text(encryptor_mock, plain_text, to_pub_k) == expected_result
 
-# Test BotEventHandler class
+#**********************************Test BotEventHandler class****************************************#
+    
 @pytest.fixture
 def mock_event_handler_dependencies():
     as_user = Mock()
@@ -52,7 +54,10 @@ def test_BotEventHandler_add_contact_does_not_add_existing_contact(mock_event_ha
     assert result is False
     assert len(event_handler._contact_list) == len(contact_list)
 
-# Test query_contact_list function
+
+
+#******************************Test query_contact_list function*************************************#
+    
 class TestQueryContactList(unittest.TestCase):
     @patch('obot.ClientPool')
     async def test_query_contact_list(self, mock_client_pool):
@@ -63,7 +68,10 @@ class TestQueryContactList(unittest.TestCase):
         contact_list = await query_contact_list(public_key, relays)
         self.assertEqual(contact_list, expected_contact_list)
 
-# Test main function
+
+
+#*********************************Test main function***************************#
+        
 @pytest.fixture
 def mock_get_args():
     with patch('obot.get_args') as mock_get_args:
