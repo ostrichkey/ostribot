@@ -21,7 +21,7 @@ def encrypt_text(encryptor: SharedEncrypt, plain_text: str, to_pub_k: str) -> st
 
 class BotEventHandler(EventHandler):
 
-    def __init__(self, as_user: Keys, clients: ClientPool, contact_list: [], message=""):
+    def __init__(self, as_user: Keys, clients: ClientPool, contact_list: list, message=""):
         self._as_user = as_user
         self._clients = clients
         self._contact_list = contact_list
@@ -32,7 +32,7 @@ class BotEventHandler(EventHandler):
         self._replied = {}
         super().__init__(event_acceptors=[DeduplicateAcceptor()])
 
-    def _make_reply_tags(self, src_evt: Event) -> []:
+    def _make_reply_tags(self, src_evt: Event) -> list:
         """
             minimal tagging just that we're replying to sec_evt and tag in the creater pk so they see our reply
         """
@@ -41,7 +41,7 @@ class BotEventHandler(EventHandler):
             ['e', src_evt.id, 'reply']
         ]
 
-    def _make_contact_list_tags(self) -> []:
+    def _make_contact_list_tags(self) -> list:
         """
             creating contact list tags 
         """
@@ -121,8 +121,10 @@ async def query_contact_list(public_key, relays):
         return events
 
 async def main(args):
-    # just the keys, change to profile?
+    # just the keys , change to profile?
     key_file = args['key']
+    
+
 
     with open(key_file,'r') as f:
         as_user = Keys(f.read().strip())
